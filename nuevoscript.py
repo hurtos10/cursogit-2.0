@@ -4,13 +4,22 @@ import random
 numeros = [random.randint(1, 1000) for i in range(100)]
 
 # Lista de letras
-letras = list("zyxwvutsrqponmlkjihgfedcba")
+letrasx = list("qwertyuiop")
 
 # Concatenar letra aleatoria a cada número
 numeros_letras = []
 for numero in numeros:
-  letra_aleatoria = random.choice(letras)
+  letra_aleatoria = random.choice(letrasx)
   numero_letra = str(numero) + letra_aleatoria
+  numeros_letras.append(numero_letra)
+
+
+
+# Concatenar letra aleatoria a cada número
+numeros_letrasx = []
+for numero in numeros:
+  letra_aleatoriax = random.choice(letrasx)
+  numero_letrax = str(numero) + letra_aleatoria
   numeros_letras.append(numero_letra)
 
 # Imprimir lista de números con letras
