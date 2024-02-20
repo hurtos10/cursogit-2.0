@@ -1,36 +1,39 @@
-import random
+import requests
+import datetime
 
-# Generar lista de 100 números aleatorios
-numeros = [random.randint(1, 1000) for i in range(100)]
+# Función para obtener la hora actual
+def obtener_hora_actual():
+    return datetime.datetime.now().strftime("%H:%M:%S")
 
-# Lista de letras
-letrasx = list("qwertyuiop")
+# Función para obtener el clima en Nueva York
+def obtener_clima_newyork():
+    # API Key de Weather API
+    api_key = "YOUR_API_KEY"
 
-# Lista de letras
-letras1 = list("aeiou")
+    # URL de la API
+    url = "https://api.openweathermap.org/data/2.5/weather?q=New%20York&appid={}".format(api_key)
 
-# Concatenar letra aleatoria a cada número
-numeros_letras = []
-for numero in numeros:
-  letra_aleatoria = random.choice(letrasx)
-  numero_letra = str(numero) + letra_aleatoria
-  numeros_letras.append(numero_letra)
+    # Petición a la API
+    respuesta = requests.get(url)
 
-  # Concatenar letra aleatoria a cada número
-numeros_letras2 = []
-for numerox in numeros:
-  letra_aleatoria = random.choice(letras1)
-  numero_letra = str(numero) + letra_aleatoria
-  numeros_letras.append(numero_letra)
+    # Decodificación de la respuesta en formato JSON
+    datos = respuesta.json()
 
+    # Temperatura actual
+    temperatura = datos["main"]["temp"] - 273.15
 
-# Concatenar letra aleatoria a cada número
-numeros_letrasx = []
-for numero in numeros:
-  letra_aleatoriax = random.choice(letrasx)
-  numero_letrax = str(numero) + letra_aleatoria
-  numeros_letras.append(numero_letra)
+    # Descripción del clima
+    descripcion = datos["weather"][0]["description"]
 
-# Imprimir lista de números con letras
-print("Lista de números con letras:")
-print(", ".join(numeros_letras))
+    return "Temperatura: {:.2f}°C, Clima: {}".format(temperatura, descripcion)
+
+# Obtención de la hora actual
+hora_actual = obtener_hora_actual()
+
+# Obtención del clima en Nueva York
+clima_newyork = obtener_clima_newyork()
+
+# Saludo y mensaje con la hora y el clima
+print("¡Buenos días!")
+print("Son las {} en Ciudad de México.".format(hora_actual))
+print("El clima en Nueva York es: {}".format(clima_newyork))
