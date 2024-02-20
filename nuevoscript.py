@@ -4,7 +4,7 @@ import random
 numeros = [random.randint(1, 1000) for i in range(100)]
 
 # Lista de letras
-letras = list("abcdefghijklmnopqrstuvwxyz")
+letras = list("zyxwvutsrqponmlkjihgfedcba")
 
 # Concatenar letra aleatoria a cada número
 numeros_letras = []
