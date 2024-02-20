@@ -1,5 +1,5 @@
-Script de Python para generar un código QR a partir de un string de entrada
-Python
+#Script de Python para generar un código QR a partir de un string de entrada
+#Python
 import qrcode
 
 # Función para generar un código QR a partir de un string
