@@ -6,6 +6,9 @@ numeros = [random.randint(1, 1000) for i in range(100)]
 # Lista de letras
 letras = list("zyxwvutsrqponmlkjihgfedcba")
 
+# Lista de letras
+letras1 = list("aeiou")
+
 # Concatenar letra aleatoria a cada número
 numeros_letras = []
 for numero in numeros:
@@ -13,6 +16,9 @@ for numero in numeros:
   numero_letra = str(numero) + letra_aleatoria
   numeros_letras.append(numero_letra)
 
-# Imprimir lista de números con letras
-print("Lista de números con letras:")
-print(", ".join(numeros_letras))
+  # Concatenar letra aleatoria a cada número
+numeros_letras2 = []
+for numerox in numeros:
+  letra_aleatoria = random.choice(letras1)
+  numero_letra = str(numero) + letra_aleatoria
+  numeros_letras.append(numero_letra)
